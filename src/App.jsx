@@ -18,7 +18,7 @@ function App() {
     }
     getData();
 
-  },[])
+  },[]);
 
   const fetchComments = async () => {
    const res = await fetch(
@@ -27,7 +27,6 @@ function App() {
    const data = await res.json();
    return data;
   }
-
 
   const fetchData = async () => {
     const ItemsDetails = await fetchComments();
@@ -38,7 +37,6 @@ function App() {
       setMore(false);
     }
     
-
     setPage(page+1);
   }
 
@@ -47,7 +45,7 @@ function App() {
       
     <InfiniteScroll
        className="d1"
-      dataLength={items.length} //This is important field to render the next data
+      dataLength={items.length} 
       next={fetchData}
       hasMore={more}
       loader={<h4>Loading...</h4>}
